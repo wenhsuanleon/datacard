@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            /* border: solid 1px #000; */
+            position: relative;
+            font-family: '微軟正黑體';
+            font-weight: 600;
+            color: rgb(94, 93, 93);
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lightbox{
+            width: 280px;
+            height: 500px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 150px;
+        }
+
+        .cardbox{
+            width: 278px;
+            height: 225px;
+            /* background-color: #eee; */
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            /* border:solid 1px red; */
+            border-radius: 2px;
+            box-shadow:0px -2px 8px rgba(0,0,0,0.35);
+        }
+
+        .img img{
+            position: absolute;
+            width: 160px;
+            top: -65px;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .img{
+            height: 100px;
+        }
+
+        .content{
+            margin: auto;
+            padding: auto;
+            width: 210px;
+            text-align: left;
+            /* border: solid 1px #eee; */
+        }
+
+        .content h3{
+            line-height:10px;
+            
+        }
+
+        .content p{
+            font-size: 15px;
+            line-height: 20px;
+        }
+
+        .hr{
+            width: 2.75px;
+            height: 46px;
+            background-color: #AA565B;
+        }
+
+        .price{
+            /* border: solid 1px red; */
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .number{
+            padding: 0 3px 0 3px;
+        }
+
+        .dollar , .count{
+            width: 49%;
+            display: flex;
+        }
+
+        .dollar{
+            line-height: 30px;
+            justify-content:flex-start;
+        }
+
+        .count{
+            justify-content:flex-end;
+            /* border: solid 1px #000; */
+        }
+
+        .notes{
+            width: 30px;
+        }
+
+        .add img, .less img{
+            width: 20px;
+        }
+
+        .add,.notes,.less{
+            /* border: solid 1px #000; */
+            padding: 5px 0 5px 5px;
+        }
+
+        .notes{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="lightbox">
+        <div class="tittle"><img src="tittle.png" alt=""></div>
+        <div class="cardbox">
+            <div class="img"><img src="tittleImg352.png" alt=""></div>
+            <div class="content">
+                <h3>祈求元辰光彩、補運助氣</h3>
+                <p>適用對象:<br>欲求平安順遂、未犯太歲民眾。</p>
+                <div class="hr"></div>
+                <div class="price">
+                    <div class="dollar">
+                        NT$
+                        <div class="number">
+                            0
+                        </div>
+                        / 年
+                    </div>
+                    <div class="count">
+                        <div class="add"><img src="add.png" alt=""></div>
+                        <div class="notes">0</div>
+                        <div class="less"><img src="less.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        
+        let add = document.querySelector('.add');
+        let less = document.querySelector('.less');
+        let notes = document.querySelector('.notes');
+        let num = document.querySelector('.number');
+
+    
+        let noteInit = 0;
+        let numInit = 0;
+        add.addEventListener('click',function(){
+            if(noteInit<9){
+                noteInit = noteInit + 1;
+                notes.textContent = noteInit ;
+
+                numInit = numInit + 100;
+                num.textContent = numInit;
+            }else{
+                noteInit.textContent = 9;
+            }
+     
+
+            if(numInit>900){
+                num.textContent = 900;
+            }
+
+          
+        })
+
+        less.addEventListener('click',function(){
+            if(noteInit>0){
+                noteInit = noteInit - 1;
+                notes.textContent = noteInit ;
+            }else{
+                notes.textContent = 0;
+            }
+
+            if(numInit>=100){
+                numInit = numInit - 100;
+                num.textContent = numInit;
+            }else{
+                num.textContent = 0;
+            }
+
+           
+         
+           
+        })
+
+    </script>
+
+</body>
+</html>
